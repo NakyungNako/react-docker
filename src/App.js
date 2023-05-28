@@ -9,7 +9,7 @@ function App() {
         <h1>
           Hello ReactJS!
         </h1>
-        <p>Testing CircleCI - with Docker</p>
+        <p>Testing CircleCI - with Docker test</p>
       </header>
     </div>
   );
