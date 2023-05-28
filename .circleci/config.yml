@@ -8,16 +8,23 @@ orbs:
 
 jobs:
   build-and-push:
+    environment: 
+      DOCKER_IMAGE: react-docker
+      DOCKER_TAG: latest
     executor: docker/docker
     steps:
       - setup_remote_docker
       - checkout
-      - docker/check
+      - docker/check:
+          docker-username: DOCKER_LOGIN
+          docker-password: DOCKER_PASSWORD
       - docker/build:
-          image: nam/react-docker
+          image: $DOCKER_USER/$DOCKER_IMAGE
+          tag: $DOCKER_TAG
       - docker/push:
           digest-path: /tmp/digest.txt
-          image: nam/react-docker
+          image: $DOCKER_USER/$DOCKER_IMAGE
+          tag: $DOCKER_TAG
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
