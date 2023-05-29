@@ -34,8 +34,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Execute Katalon Studio
-          command: cd Test && katalonc.sh -statusDelay=30 -retry=0 -projectPath="/root/project/Test/react-docker.prj" -testSuitePath="Test Suites/New_Test_Suite" -executionProfile="staging" -browserType="Firefox (headless)" -apiKey=06193067-e81a-4bd6-b7c5-45115f114522
+          command_arguments: >-
+            -browserType='Firefox' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
   deploy:
     executor: docker/docker
     steps:
