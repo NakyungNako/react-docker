@@ -57,9 +57,11 @@ workflows:
               only:
                 - main
       - katalon-studio/run:
+          requires:
+            - build-and-push
           version: latest
           command_arguments: >-
             -browserType='Chrome' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
       - deploy:
           requires:
-            - build-and-push
+            - katalon-studio/run
