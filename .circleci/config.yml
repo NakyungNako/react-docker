@@ -33,7 +33,8 @@ jobs:
     executor: docker/docker
     steps:
       - checkout
-      - run:
+      - katalon-studio/run:
+          version: latest
           command_arguments: >-
             -browserType='Firefox' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
   deploy:
