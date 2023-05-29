@@ -29,14 +29,6 @@ jobs:
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
-  test:
-    executor: docker/docker
-    steps:
-      - checkout
-      - katalon-studio/run:
-          version: latest
-          command_arguments: >-
-            -browserType='Firefox' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
   deploy:
     executor: docker/docker
     steps:
@@ -64,9 +56,10 @@ workflows:
             branches:
               only:
                 - main
-      - test:
-          requires:
-            - build-and-push
+      - katalon-studio/run:
+          version: latest
+          command_arguments: >-
+            -browserType='Chrome' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
       - deploy:
           requires:
             - test
