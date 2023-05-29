@@ -9,7 +9,7 @@ function App() {
         <h1>
           Hello ReactJS!
         </h1>
-        <p>Testing CircleCI - Docker CI/CD</p>
+        <p>Testing CircleCI - Docker CI/CD - Katalon Test</p>
         <form>
           <label for="fname">First name:</label>
           <input type="text" id="fname" name="fname"/><br/><br/>
