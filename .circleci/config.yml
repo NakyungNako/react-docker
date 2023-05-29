@@ -62,4 +62,4 @@ workflows:
             -browserType='Chrome' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/New_Test_Suite'
       - deploy:
           requires:
-            - test
+            - build-and-push
