@@ -63,6 +63,9 @@ workflows:
             branches:
               only:
                 - main
-      - deploy:
+      - test:
           requires:
             - build-and-push
+      - deploy:
+          requires:
+            - test
